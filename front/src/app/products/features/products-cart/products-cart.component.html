@@ -1,0 +1,10 @@
+<h1 class="text-center">votre panier</h1>
+
+
+<p-dataView #dv [value]="productsInCart()">
+    <ng-template pTemplate="list" let-productsInCart>
+        @for (product of productsInCart; track product) {
+            <product-item [product]="product"></product-item>           
+        }
+    </ng-template>
+</p-dataView>

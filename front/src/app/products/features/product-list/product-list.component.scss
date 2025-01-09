@@ -1,0 +1,26 @@
+:host {
+    display: block;
+    height: 100%;
+    overflow: auto;
+}
+
+.p-dataview-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+:host::ng-deep product-item {
+    > div {
+      > div {
+        justify-content: space-between !important;
+      }
+    }
+}
+.p-inputtext {
+    min-width: 17vw;
+}
+
+.p-input-container {
+    padding-left: 4%;
+}

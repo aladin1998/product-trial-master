@@ -1,0 +1,14 @@
+:host {
+    display: block;
+    height: 100%;
+    overflow: auto;
+}
+
+
+:host::ng-deep product-item {
+    > div {
+      > div {
+        justify-content: space-between !important;
+      }
+    }
+}

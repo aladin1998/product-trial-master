@@ -1,0 +1,76 @@
+<div
+                    class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" [ngClass]="{ 'border-t border-surface-200 dark:border-surface-700': !first }">
+                    <div class="md:w-40 relative">
+                        <img
+                            class="block xl:block mx-auto rounded-border w-full"
+                            [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product?.image"
+                            [alt]="product?.name"
+                        />
+                        <p-tag
+                            [value]="product?.inventoryStatus"
+                            [severity]="getSeverity(product)"
+                            class="absolute"
+                            styleClass="dark:!bg-surface-900"
+                            [style.left.px]="4"
+                            [style.top.px]="4"
+                        />
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                        <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                            <div>
+                                <span class="font-medium text-secondary text-sm">{{ product?.category }}</span>
+                                <div class="text-lg font-medium text-surface-900 dark:text-surface-0 mt-2">{{ product?.name }}</div>
+                                <div class="card flex flex-wrap gap-3 p-fluid quantity-container">
+                                    <div class="flex-auto">
+                                        <label class="mb-2 block font-bold" for="minmax-buttons">
+                                            Quantité
+                                        </label>
+                                            <p-inputNumber 
+                                            [(ngModel)]="quantity"
+                                            mode="decimal" 
+                                            inputId="minmax-buttons" 
+                                            [min]="0" 
+                                            [max]="100" />                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-surface-100 dark:bg-surface-700 p-1" style="border-radius: 30px">
+                                <div
+                                    class="bg-surface-0 dark:bg-surface-900 flex items-center gap-2 justify-center py-1 px-2"
+                                    style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)"
+                                >
+                                    <span class="text-surface-900 dark:text-surface-0 font-medium text-sm">{{
+                                        product?.rating
+                                    }}</span>
+                                    <i class="pi pi-star-fill text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:items-end gap-6">
+                            <span class="text-xl font-semibold text-surface-900 dark:text-surface-0">{{
+                                '$' + product?.price
+                            }}</span>
+                            <div class="flex flex-row-reverse md:flex-row gap-2">
+                                <p-button *ngIf="product?.isInCart" icon="pi pi-times" severity="danger"  label="Supprimer du Panier" severity="danger" (onClick)="onDeleteFromCart(product)" /> 
+                                <p-button *ngIf="!product?.isInCart"
+                                    icon="pi pi-shopping-cart"
+                                    class="flex-auto md:flex-initial whitespace-nowrap"
+                                    label="Ajouter au Panier"
+                                    [disabled]="product?.inventoryStatus === 'OUTOFSTOCK' && product?.isInCart" (onClick)="onAddToCart(product)"
+                                />
+                                <!-- <div class="card flex justify-content-center">
+                                    <p-cascadeSelect 
+                                        [(ngModel)]="product?.quantity" 
+                                        [options]="" 
+                                        optionLabel="cname"
+                                        optionGroupLabel="name" 
+                                        [optionGroupChildren]="['states', 'cities']" 
+                                        [style]="{ minWidth: '14rem' }" 
+                                        placeholder="Select a City" />
+                                </div> -->
+    
+                            </div>
+                        </div>
+                    </div>
+            </div>
+

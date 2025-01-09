@@ -1,0 +1,23 @@
+<div class="contact-form">
+    <h2>Contactez-nous</h2>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="p-field">
+        <label for="email">Email</label>
+        <input pInputText id="email" formControlName="email" placeholder="Entrez votre email" />
+        @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+            Veuillez entrer un email valide.
+        }
+      </div>
+  
+      <div class="p-field">
+        <label for="message">Message</label>
+        <textarea pInputTextarea id="message" formControlName="message" rows="5" placeholder="Entrez votre message"></textarea>
+        @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+            Le message est obligatoire et ne doit pas dépasser 300 caractères.
+        }
+      </div>
+  
+      <button pButton type="submit" label="Envoyer" [disabled]="contactForm.invalid"></button>
+    </form>
+</div>
+  
