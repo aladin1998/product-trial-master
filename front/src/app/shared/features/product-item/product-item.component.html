@@ -58,17 +58,6 @@
                                     label="Ajouter au Panier"
                                     [disabled]="product?.inventoryStatus === 'OUTOFSTOCK' && product?.isInCart" (onClick)="onAddToCart(product)"
                                 />
-                                <!-- <div class="card flex justify-content-center">
-                                    <p-cascadeSelect 
-                                        [(ngModel)]="product?.quantity" 
-                                        [options]="" 
-                                        optionLabel="cname"
-                                        optionGroupLabel="name" 
-                                        [optionGroupChildren]="['states', 'cities']" 
-                                        [style]="{ minWidth: '14rem' }" 
-                                        placeholder="Select a City" />
-                                </div> -->
-    
                             </div>
                         </div>
                     </div>
