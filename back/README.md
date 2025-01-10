@@ -42,7 +42,7 @@ Le projet est configuré pour utiliser une base de données H2 en mémoire pour 
    - **Username**: `sa`
    - **Password**: `password`
 
-#### Tester avec Postman
+### Tester avec Postman
 
 Récupérez le fichier JSON contenant les requêtes à tester depuis postman/collections.
 
