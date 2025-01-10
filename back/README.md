@@ -6,6 +6,7 @@ Ceci est un projet Spring Boot pour la gestion des produits dans le cadre d'un t
 
 - Java 21 ou supérieur 
 - Maven 3.6.3 ou supérieur
+- Docker
 
 ### Setup
 
