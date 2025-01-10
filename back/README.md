@@ -2,8 +2,6 @@
 
 Ceci est un projet Spring Boot pour la gestion des produits dans le cadre d'un test à passer chez ALTEN
 
-### Quick Start
-
 ### Prérequis
 
 - Java 21 ou supérieur 
